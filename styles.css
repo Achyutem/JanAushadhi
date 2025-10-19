@@ -80,6 +80,13 @@ body {
   margin: 0;
 }
 
+.subtitle {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin: 0;
+}
+
 .theme-toggle {
   background: none;
   color: var(--fg);
