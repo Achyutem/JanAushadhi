@@ -18,6 +18,16 @@ document.addEventListener("DOMContentLoaded", () => {
   let itemsPerPage = 10;
   let searchQuery = "";
 
+  const stickyHeader = document.querySelector(".sticky-header");
+  const setHeaderOffset = () => {
+    document.documentElement.style.setProperty(
+      "--header-h",
+      stickyHeader.offsetHeight + "px"
+    );
+  };
+  setHeaderOffset();
+  window.addEventListener("resize", setHeaderOffset);
+
   const searchInput = document.getElementById("search");
   searchInput.focus();
   const perPageSelect = document.getElementById("items-per-page");

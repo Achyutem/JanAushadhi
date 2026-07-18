@@ -4,20 +4,20 @@
   /* --primary: #7c3aed; */
   /* --primary: #0891b2; */
   /* --primary: #059669; */
-  /* --primary: #e11d48; */
-  --primary: #d97706;
-  --primary-light: #5eead4;
-  --primary-dark: #115e59;
+  --primary: #e11d48;
+  /* --primary: #d97706; */
+  --primary-light: #fbbf24;
+  --primary-dark: #92400e;
   --accent: #f59e0b;
-  --bg: #f8faf9;
+  --bg: #fafaf9;
   --fg: #1e293b;
   --card-bg: #ffffff;
   --border: #e2e8f0;
   --muted: #64748b;
-  --input-bg: #f1f5f9;
+  --input-bg: #f8fafc;
   --input-border: #cbd5e1;
-  --highlight-bg: rgba(13, 148, 136, 0.1);
-  --highlight-color: #0d9488;
+  --highlight-bg: rgba(217, 119, 6, 0.1);
+  --highlight-color: #d97706;
   --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
   --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
 }
@@ -28,10 +28,10 @@
   /* --primary: #a78bfa; */
   /* --primary: #22d3ee; */
   /* --primary: #34d399; */
-  /* --primary: #fb7185; */
-  --primary: #d97706;
-  --primary-light: #5eead4;
-  --primary-dark: #0f766e;
+  --primary: #fb7185;
+  /* --primary: #f59e0b; */
+  --primary-light: #fbbf24;
+  --primary-dark: #b45309;
   --accent: #fbbf24;
   --bg: #0f172a;
   --fg: #f1f5f9;
@@ -40,8 +40,8 @@
   --muted: #94a3b8;
   --input-bg: #1e293b;
   --input-border: #475569;
-  --highlight-bg: rgba(45, 212, 191, 0.12);
-  --highlight-color: #2dd4bf;
+  --highlight-bg: rgba(245, 158, 11, 0.12);
+  --highlight-color: #f59e0b;
   --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
   --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -150,7 +150,7 @@ body {
 .search-input:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
 }
 
 .search-input::placeholder {
@@ -162,15 +162,13 @@ body {
   border-collapse: separate;
   border-spacing: 0;
   background-color: var(--card-bg);
-  border-radius: 16px;
-  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--border);
   font-size: 0.95rem;
-  box-shadow: var(--shadow);
   margin-bottom: 2rem;
 }
 
 .product-table thead {
-  background-color: var(--card-bg);
   color: var(--muted);
   text-align: left;
   font-weight: 500;
@@ -179,20 +177,44 @@ body {
   letter-spacing: 0.05em;
 }
 
+.product-table thead th {
+  position: sticky;
+  top: var(--header-h, 0px);
+  z-index: 10;
+  background-color: var(--card-bg);
+  border-bottom: 2px solid var(--border);
+}
+
+.product-table thead th:first-child {
+  border-top-left-radius: 12px;
+}
+
+.product-table thead th:last-child {
+  border-top-right-radius: 12px;
+}
+
+.product-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+
+.product-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
 .product-table th,
 .product-table td {
-  padding: 1rem 1.5rem;
+  padding: 0.85rem 1.25rem;
   border-bottom: 1px solid var(--border);
 }
 
 .product-table th:first-child,
 .product-table td:first-child {
-  padding-left: 2rem;
+  padding-left: 1.25rem;
 }
 
 .product-table th:last-child,
 .product-table td:last-child {
-  padding-right: 2rem;
+  padding-right: 1.25rem;
 }
 
 .product-table tbody tr:last-child td {
@@ -251,7 +273,7 @@ mark {
 .select:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
 }
 
 .pagination {
