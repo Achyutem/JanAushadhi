@@ -1,35 +1,49 @@
 :root {
-  --primary: #9f46ee;
-  --primary-light: #9575cd;
-  --primary-dark: #311b92;
-  --bg: #f5f5f5;
-  --fg: #212121;
+  /* --primary: #0d9488; */
+  /* --primary: #2563eb; */
+  /* --primary: #7c3aed; */
+  /* --primary: #0891b2; */
+  /* --primary: #059669; */
+  /* --primary: #e11d48; */
+  --primary: #d97706;
+  --primary-light: #5eead4;
+  --primary-dark: #115e59;
+  --accent: #f59e0b;
+  --bg: #f8faf9;
+  --fg: #1e293b;
   --card-bg: #ffffff;
-  --border: #e0e0e0;
-  --muted: #757575;
-  --input-bg: #f5f5f5;
-  --input-border: #bdbdbd;
-  --highlight-bg: rgba(103, 58, 183, 0.1);
-  --highlight-color: #673ab7;
-  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  --shadow-2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --border: #e2e8f0;
+  --muted: #64748b;
+  --input-bg: #f1f5f9;
+  --input-border: #cbd5e1;
+  --highlight-bg: rgba(13, 148, 136, 0.1);
+  --highlight-color: #0d9488;
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 [data-theme="dark"] {
-  --primary: #bb86fc;
-  --primary-light: #cf9cff;
-  --primary-dark: #3700b3;
-  --bg: #121212;
-  --fg: #ffffff;
-  --card-bg: #1e1e1e;
-  --border: #333333;
-  --muted: #b0b0b0;
-  --input-bg: #2c2c2c;
-  --input-border: #444444;
-  --highlight-bg: rgba(187, 134, 252, 0.15);
-  --highlight-color: #bb86fc;
-  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-2: 0 3px 6px rgba(0, 0, 0, 0.25), 0 3px 6px rgba(0, 0, 0, 0.4);
+  /* --primary: #2dd4bf; */
+  /* --primary: #60a5fa; */
+  /* --primary: #a78bfa; */
+  /* --primary: #22d3ee; */
+  /* --primary: #34d399; */
+  /* --primary: #fb7185; */
+  --primary: #d97706;
+  --primary-light: #5eead4;
+  --primary-dark: #0f766e;
+  --accent: #fbbf24;
+  --bg: #0f172a;
+  --fg: #f1f5f9;
+  --card-bg: #1e293b;
+  --border: #334155;
+  --muted: #94a3b8;
+  --input-bg: #1e293b;
+  --input-border: #475569;
+  --highlight-bg: rgba(45, 212, 191, 0.12);
+  --highlight-color: #2dd4bf;
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -43,7 +57,9 @@ body {
   color: var(--fg);
   font-family: "Lexend", sans-serif;
   line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .sticky-header {
@@ -115,7 +131,7 @@ body {
   left: 1rem;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--muted);
+  color: var(--primary);
   pointer-events: none;
 }
 
@@ -134,7 +150,7 @@ body {
 .search-input:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
 }
 
 .search-input::placeholder {
@@ -235,7 +251,7 @@ mark {
 .select:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
 }
 
 .pagination {
@@ -387,17 +403,137 @@ mark {
 @media (max-width: 640px) {
   .container {
     max-width: 100%;
-    padding: 0 0.5rem;
+    padding: 0 0.75rem;
   }
 
   .sticky-header {
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.75rem;
   }
 
   .product-table {
     display: block;
-    overflow-x: auto;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .product-table thead {
+    display: none;
+  }
+
+  .product-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .product-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 0.3rem 1rem;
+    background-color: var(--card-bg);
     border-radius: 12px;
+    padding: 0.85rem 1rem;
+    border: 1.5px solid var(--border);
+    border-left: 3.5px solid var(--primary);
+    box-shadow: var(--shadow-1);
+    transition:
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .product-table td {
+    display: block;
+    padding: 0;
+    border-bottom: none;
+    font-size: 0.78rem;
+    color: var(--fg);
+    line-height: 1.4;
+  }
+
+  .product-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.58rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1px;
+  }
+
+  /* td order: 1=DrugCode, 2=GenericName, 3=Price, 4=Group, 5=IndustryPrice */
+
+  .product-table td:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .product-table td:nth-child(4) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .product-table td:nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--fg);
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    margin-top: 0.1rem;
+    border-top: 1px solid var(--border);
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .product-table td:nth-child(2)::before {
+    display: none;
+  }
+
+  .product-table td:nth-child(3) {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    font-weight: 700;
+    color: var(--primary);
+    padding-top: 0.2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .product-table td:nth-child(5) {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    color: var(--muted);
+    text-decoration: line-through;
+    opacity: 0.8;
+  }
+
+  .product-table td:nth-child(5)::before {
+    text-decoration: none;
+  }
+
+  .product-table td.empty-state {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .product-table td.empty-state::before {
+    content: none;
+  }
+
+  .product-table th:first-child,
+  .product-table td:first-child {
+    padding-left: 0;
+  }
+
+  .product-table th:last-child,
+  .product-table td:last-child {
+    padding-right: 0;
   }
 
   .title {
